@@ -18,12 +18,47 @@
                name:'Jessie',
                age:40
            }
+            //TODO: Must use this kind of way if want use this.state? Yes, need to make understanding more clear
+           handleClick =(e) =>{
+            //    console.log(e.target);
+            this.setState({
+                name: "Yujie",
+                age: 25
+            })
+                  console.log(this.state)
+           }
+
+           handleMouseOver =(e) =>{
+                console.log(e.target, e.pageX)
+           }
+
+           handleCopy =(e)=>{
+               console.log('Try being original for once!')
+           }
+
+           handleChange=(e)=>{
+               this.setState({
+                   name:e.target.value
+               });
+           }
+
+           handleSubmit=(e)=>{
+            //    preventDefault is used to prevent the default action, here is used to prevent the auto-refresh
+               e.preventDefault(); 
+           }
+
            render(){
                return (
                    <div className="app-content">
                    <h1>Hey,ninjas</h1>
-                   <p>{ Math.random() * 10 }</p>
                    <p>My name is: {this.state.name} and I am {this.state.age}</p>
+                   <form onSubmit={this.handleSubmit}>
+                    <input type="text" onChange={this.handleChange}/>
+                    <button>Submit</button>
+                    </form>
+                   <button onClick={this.handleClick}>Click Me</button>
+                   <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                   <p onCopy={this.handleCopy}>What we think, we become</p>
                     </div> 
                )
            }
