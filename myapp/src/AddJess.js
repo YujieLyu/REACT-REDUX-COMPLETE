@@ -5,16 +5,17 @@ class AddJess extends Component{
         name:null,
         age:null,
         belt:null
-    }
+    } 
     handleChange=(e)=>{
         this.setState({
-            [e.target.id]:e.target.value
+            [e.target.id]:e.target.value //match the HTML id
         })
     }
     handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(this.state)
+        this.props.addJess(this.state) //What does this.state contain? -- So here the state contains user's input
     }
+    
     render(){
         return(
             <div>

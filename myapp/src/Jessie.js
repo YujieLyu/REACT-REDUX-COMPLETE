@@ -29,8 +29,8 @@ const Jessie=({jessie})=>{
                 <div>Age: {jess.age}</div>
                 <div>Belt: {jess.belt}</div>
                 </div> 
-            ):null
-        })
+            ): null
+        });
         return(
             <div className="jess-list">
                 {jessList}
