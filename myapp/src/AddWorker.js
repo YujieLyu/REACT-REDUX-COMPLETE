@@ -5,16 +5,16 @@ class AddWorker extends Component{
         name:null,
         age:null,
         belt:null
-    } 
+    };
     handleChange=(e)=>{
         this.setState({
             [e.target.id]:e.target.value //match the HTML id
-        })
-    }
+        });
+    };
     handleSubmit = (e) =>{
-        e.preventDefault()
-        this.props.addWorker(this.state) //What does this.state contain? -- So here the state contains user's input
-    }
+        e.preventDefault();
+        this.props.addWorker(this.state); //What does this.state contain? -- So here the state contains user's input
+    };
     
     render(){
         return(
@@ -29,7 +29,7 @@ class AddWorker extends Component{
                     <button>Submit</button>
                 </form>
             </div>
-        )
+        );
     }
 }
 

@@ -1,16 +1,17 @@
 import React from 'react';
+import './Workers.css'
 // Why const here? Why not function?
-const Workers = ({ workers, deleteWorkers }) => {
+const Workers = ({ workers, deleteWorker }) => {
     const workerList = workers.map(worker => {
         return worker.age > 20 ? (
             <div className="workers" key={worker.id}>
                 <div>Name: {worker.name}</div>
                 <div>Age: {worker.age}</div>
                 <div>Belt: {worker.belt}</div>
-                <button>Delete worker</button>
+                <button onClick={()=>{deleteWorker(worker.id)}}>Delete worker</button>
             </div>
         ) : null
-    })
+    });
 
 
     return (
@@ -18,6 +19,6 @@ const Workers = ({ workers, deleteWorkers }) => {
             {workerList}
         </div>
     )
-}
+};
 
-export default Workers
+export default Workers;
