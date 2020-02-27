@@ -17,6 +17,7 @@ class Home extends Component {
 
     render() {
         const { posts } = this.state;
+        //TODO: Add a type judgement
         const postList = posts.length ? (
             posts.map(post => {
                 return (
