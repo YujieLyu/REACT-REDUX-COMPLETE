@@ -20,6 +20,11 @@ class Home extends Component {
     render() {
         const {posts} = this.state;
         //TODO: Add a type judgement
+        if(typeof (posts) !== 'object'){
+            return (
+                <div>Sorry, cannot reach posts.</div>
+            )
+        }
         const postList = posts.length ? (
             posts.map(post => {
                 return (
