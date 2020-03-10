@@ -3,9 +3,9 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Pokeball from '../pokeball.png'
 
-interface IHomeState {
-    posts: string[];
-}
+// interface IHomeState {
+//     posts: string[];
+// }
 class Home extends Component {
     state = {
         posts: []
