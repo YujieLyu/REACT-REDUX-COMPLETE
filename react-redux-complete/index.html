@@ -13,69 +13,53 @@
 <body>
     <div id="app"></div>
     <script type="text/babel">
-        class Clock extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { date: new Date() };
-            }
-
-            componentDidMount() {
-                this.timerID = setInterval(
-                    () => this.tick(),
-                    1000
-                );
-            }
-
-            componentWillUnmount() {
-                clearInterval(this.timerID);
-            }
-
-            tick() {
-                this.setState({
-                    date: new Date()
-                });
-            }
-
-            render() {
-                return (
-                    <div>
-                        <h2>Current time is {this.state.date.toLocaleTimeString()}</h2>
-                    </div>
-                );
-            }
-        }
-
         class App extends React.Component {
+            state = {
+                name: 'Ryu',
+                age: 35
+            }
+
+            handleClick = (e) => {
+                // console.log(e.target);"
+                this.setState({ name: "Yoshi", age: "12" });
+                console.log(this.state)
+            }
+
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX);
+            }
+            handleCopy(e) {
+                console.log('Try being original for once!')
+            }
+
+            handleChange =(e)=>{
+                this.setState({
+                    name:e.target.value
+
+                })
+            }
+
+            handleSubmit=(e)=>{
+                e.preventDefault();
+                console.log('form submitted', this.state.name);
+            }
+
             render() {
                 return (
                     <div className="app-content">
-                        <Clock />
-                        <Toggle />
+                        <h1>My name is: {this.state.name} and I am {this.state.age}</h1>
+                        <button onClick={this.handleClick}>Click Me</button>
+                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                        <p onCopy={this.handleCopy}>What we think, we become</p>
+
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button>Submit</button>
+                        </form>
                     </div>
-                );
+                )
             }
         }
-
-        class Toggle extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { isToggleOn: true };
-                this.handleClick = this.handleClick.bind(this);
-            }
-            handleClick() {
-                this.setState(state=>
-                     ({isToggleOn: !state.isToggleOn})
-                );
-            }
-            render(){
-                return(
-                    <button onClick={this.handleClick}>
-                    {this.state.isToggleOn?"On":"Off"}
-                    </button>
-                );
-            }
-        }
-
         ReactDOM.render(<App />, document.getElementById('app'));
     </script>
 </body>
