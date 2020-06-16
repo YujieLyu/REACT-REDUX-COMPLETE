@@ -7,7 +7,7 @@ class App extends Component {
     ninjas: [
       { name: "Ryu", age: 33, belt: "black", id: 1 },
       { name: "Yoshi", age: 23, belt: "green", id: 2 },
-      { name: "Crystal", age: 13, belt: "red", id: 3 }
+      { name: "Crystal", age: 53, belt: "red", id: 3 }
     ]
   }
 
@@ -26,6 +26,16 @@ class App extends Component {
     this.setState({
       ninjas:updatedNinjas
     })
+  }
+
+  componentDidMount(){
+    console.log('component mounted')
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log('componenet updated');
+    console.log(prevProps,prevState)
+
   }
 
   render() {
