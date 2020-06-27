@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Pokeball from '../pokeball.png'
+import Pokeball from '../pokeball.png';
+import '../index.css'
 
 class Home extends Component {
 
